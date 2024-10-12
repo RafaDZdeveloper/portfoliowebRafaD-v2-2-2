@@ -89,7 +89,7 @@ const Home: React.FC = () => {
         <section className="section hero">
           <div className="hero-content">
             <img
-              src={theme === 'dark' ? "public/images/img_6012_byn.png" : "public/images/img_6012_byn.png"}
+              src={theme === 'dark' ? "/public/images/img_6012_byn.png" : "/public/images/img_6012_byn.png"}
               alt="Mi foto"
               className="hero-image"
             />
