@@ -1,0 +1,74 @@
+/* Estilo general del contenedor de contacto */
+.contact {
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 8px;
+  min-height: 300px; /* Altura mínima fija */
+  
+}
+
+/* Estilo del título del componente de contacto */
+.contact-title {
+  font-size: 2.5em;
+  margin-bottom: 30px; /* Aumentar la separación con el texto */
+  font-weight: bold;
+  background: -webkit-linear-gradient(45deg, #4a0072, #d81b60); /* Degradado */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; /* Para el efecto de degradado en WebKit */
+}
+
+/* Estilo de la descripción del componente de contacto */
+.contact-description {
+  font-size: 1.2em;
+  color: #666;
+  margin-bottom: 40px; /* Aumentar la separación con los íconos */
+  line-height: 1.5;
+}
+
+/* Contenedor de los íconos de contacto */
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Aumentar el espacio entre íconos */
+  flex-wrap: wrap;
+  margin-bottom: 350px; /* Agregar margen inferior para el espacio en blanco */
+}
+
+/* Estilo de los íconos de contacto */
+.contact-icon {
+  width: 60px; /* Ajustar el tamaño de los íconos */
+  height: 60px;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+/* Estilo de las imágenes dentro de los íconos */
+.contact-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Efecto al pasar el cursor sobre los íconos */
+.contact-icon:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+/* Estilo responsivo para pantallas pequeñas */
+@media (max-width: 600px) {
+  .contact-title {
+    font-size: 2em;
+  }
+
+  .contact-description {
+    font-size: 1em;
+  }
+
+  .contact-icon {
+    width: 50px;
+    height: 50px;
+  }
+}

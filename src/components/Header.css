@@ -1,0 +1,246 @@
+/* Variables */
+:root {
+  --border-color: #6a1b9a; /* Color violeta oscuro */
+  --hover-color: #ff40ac; /* Color rosa para el hover */
+  --border-thick: 2px; /* Grosor de las líneas */
+  --hover-transition: 0.3s ease; /* Transición en hover */
+  --logo-hover-rotate: 5deg; /* Rotación en hover */
+}
+
+/* Estilo general del header */
+.header {
+  background-color: #ffffff; /* Fondo claro por defecto */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Contenedor general */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Estilo del logo como botón */
+.logo-button {
+  background: transparent;
+  color: var(--border-color);
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  overflow: visible; /* Permite que el logo se muestre completamente al hacer hover */
+}
+
+/* Elimina las líneas decorativas del logo */
+.logo-button::before, 
+.logo-button::after {
+  content: none;
+}
+
+.logo-button span::before,
+.logo-button span::after {
+  content: none;
+}
+
+/* Estilo del logo */
+.logo {
+  height: 50px;
+  border: none; /* Asegúrate de que no haya bordes */
+  background: transparent; /* Fondo transparente */
+  position: relative; /* Posición relativa para aplicar estilos específicos */
+  display: inline-block; /* Asegúrate de que el logo se alinee correctamente */
+  transition: transform var(--hover-transition); /* Transición para la animación */
+  transform-origin: center; /* Establece el centro como el punto de rotación */
+}
+
+/* Animación específica para el hover del logo */
+.logo-button:hover .logo {
+  transform: rotate(var(--logo-hover-rotate)); /* Solo rota el logo sin desplazamiento */
+}
+
+/* Estilo de los botones de navegación */
+.nav-button {
+  padding: 1em 3em; /* Mismo padding que otros botones */
+  background: transparent;
+  color: var(--border-color);
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  overflow: hidden;
+  transition: color var(--hover-transition);
+}
+
+/* Líneas del borde superior e inferior para los botones de navegación */
+.nav-button::before, 
+.nav-button::after {
+  content: '';
+  position: absolute;
+  background-color: var(--border-color);
+  transition: transform var(--hover-transition), width var(--hover-transition);
+}
+
+.nav-button::before {
+  top: 0; /* Posiciona la línea en la parte superior */
+  left: 0;
+  width: 100%;
+  height: var(--border-thick);
+  transform: scaleX(0); /* Línea invisible inicialmente */
+  transform-origin: left; /* Expande desde la izquierda */
+}
+
+.nav-button::after {
+  bottom: 0; /* Posiciona la línea en la parte inferior */
+  right: 0; /* Posiciona la línea en la parte derecha */
+  width: 100%;
+  height: var(--border-thick);
+  transform: scaleX(0); /* Línea invisible inicialmente */
+  transform-origin: right; /* Expande desde la derecha */
+}
+
+/* Líneas verticales para los botones de navegación */
+.nav-button span::before,
+.nav-button span::after {
+  content: '';
+  position: absolute;
+  background-color: var(--border-color);
+  transition: transform var(--hover-transition), height var(--hover-transition);
+}
+
+.nav-button span::before {
+  top: 0;
+  right: 0; /* Posiciona la línea en la parte derecha */
+  height: 100%;
+  width: var(--border-thick);
+  transform: scaleY(0); /* Línea invisible inicialmente */
+  transform-origin: top; /* Expande desde la parte superior */
+}
+
+.nav-button span::after {
+  bottom: 0; /* Posiciona la línea en la parte inferior */
+  left: 0; /* Posiciona la línea en la parte izquierda */
+  height: 100%;
+  width: var(--border-thick);
+  transform: scaleY(0); /* Línea invisible inicialmente */
+  transform-origin: bottom; /* Expande desde la parte inferior */
+}
+
+/* Animación en hover para las líneas horizontales */
+.nav-button:hover::before {
+  transform: scaleX(1); /* Expande horizontalmente desde la izquierda */
+}
+
+.nav-button:hover::after {
+  transform: scaleX(1); /* Expande horizontalmente desde la derecha */
+}
+
+/* Animación en hover para las líneas verticales */
+.nav-button:hover span::before {
+  transform: scaleY(1); /* Expande verticalmente desde la parte superior */
+}
+
+.nav-button:hover span::after {
+  transform: scaleY(1); /* Expande verticalmente desde la parte inferior */
+}
+
+/* Cambio de color del texto en hover */
+.nav-button:hover {
+  color: var(--hover-color); /* Cambia el color del texto a rosa en hover */
+}
+
+/* Estilo del botón de cambio de modo */
+.mode-toggle-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mode-icon {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Añade transición para box-shadow */
+}
+
+/* Estilo del botón de cambio de modo */
+.mode-toggle-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilo del icono en el botón de cambio de modo */
+.mode-icon {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Efecto de resplandor cuando se pasa el mouse sobre el icono (modo claro) */
+.mode-toggle-button:hover .mode-icon {
+  transform: scale(1.2) rotate(-15deg);
+  filter: 
+    drop-shadow(0 0 30px rgba(255, 165, 0, 0.8)) /* Primer resplandor */
+    drop-shadow(0 0 50px rgba(255, 165, 0, 0.6)); /* Segundo resplandor más grande y más tenue */
+    filter: drop-shadow(0 0 30px rgba(255, 165, 0, 1)); /* Resplandor naranja más intenso */
+}
+
+/* Efecto de resplandor en modo oscuro */
+body.dark-mode .mode-toggle-button:hover .mode-icon {
+  filter: drop-shadow(0 0 25px rgba(0, 255, 255, 1)); /* Resplandor cian con mayor intensidad */
+}
+
+
+
+
+body.dark-mode .header .nav-button {
+  color: #e0e0e0; /* Color del texto de los botones de navegación */
+}
+
+body.dark-mode .header .nav-button:hover {
+  color: #bb86fc; /* Color lila brillante en hover */
+}
+
+body.dark-mode .header .logo {
+  filter: brightness(0.9); /* Ajuste de brillo para el logo */
+}
+
+/* Estilos generales para el logo */
+.logo {
+  transition: box-shadow 0.3s ease; /* Transición suave para el efecto de resplandor */
+}
+
+/* Efecto de resplandor en modo claro */
+.logo-button:hover .logo {
+  box-shadow: 0 0 15px #bb86fc /* Resplandor anaranjado para el modo claro */
+}
+
+/* Efecto de resplandor en modo oscuro */
+.header.dark .logo-button:hover .logo {
+  box-shadow: 0 0 15px #bb86fc /* Resplandor cian para el modo oscuro */
+}

@@ -1,0 +1,144 @@
+/* Estilos generales */
+.about {
+  text-align: center;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Títulos en About */
+.about h1 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  background: -webkit-linear-gradient(45deg, #4a0072, #d81b60); /* Degradado de color */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Contenido de About */
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Ajusta las columnas a un diseño equilibrado */
+  gap: 20px;
+  margin-bottom: 40px;
+  align-items: center; /* Alinea verticalmente el contenido */
+}
+
+/* Contenedor de la imagen */
+.about-image-container {
+  width: 100%;
+  max-width: 600px;
+}
+
+.about-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+ 
+ 
+}
+
+/* Contenedor del texto */
+.about-text-container {
+  max-width: 600px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente para legibilidad */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera para dar profundidad */
+  transition: transform 0.3s ease-in-out; /* Transición para el efecto de desplazamiento */
+  text-align: left;
+}
+
+/* Efecto de desplazamiento para el texto */
+.about-content:hover .about-text-container {
+  transform: translateY(-10px); /* Desplaza el texto hacia arriba al pasar el ratón */
+}
+
+.about-text {
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Skills Section */
+.skills-section {
+  margin: 60px 0; /* Aumenta el margen para destacar la sección de habilidades */
+  text-align: center; /* Centra el contenido del botón */
+}
+
+/* Estilos del botón de habilidades */
+.toggle-button {
+  padding: 12px 24px; /* Aumenta el tamaño del botón para hacerlo más prominente */
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #4a0072;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-bottom: 20px;
+}
+/* Modo oscuro */
+.dark-mode {
+  background-color: #121212; /* Fondo oscuro */
+  color: #e0e0e0; /* Texto claro */
+}
+
+/* Modo claro (asumiendo que el fondo es blanco) */
+body {
+  background-color: #ffffff; /* Fondo claro */
+  color: #000000; /* Texto oscuro */
+}
+
+
+/* Estilos para los íconos de habilidades */
+.skills-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.skill-container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.skill-icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-image {
+  max-width: 70%;
+  max-height: 70%;
+  object-fit: contain;
+}
+
+.skill-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+}
+
+.skill-container:hover .skill-icon {
+  opacity: 0;
+}
+
+.skill-container:hover .skill-progress {
+  opacity: 1;
+}

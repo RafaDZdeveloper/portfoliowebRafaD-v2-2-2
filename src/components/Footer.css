@@ -1,0 +1,42 @@
+/* Estilo general del contenedor principal de la página */
+.page-container {
+  min-height: 100vh; /* Asegura que el contenedor principal tenga al menos la altura de la ventana */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Footer */
+.footer {
+  background-color: transparent; /* Elimina el color de fondo */
+  padding: 10px 20px; /* Agrega un poco de relleno para un mejor aspecto */
+  margin: 0; /* Elimina cualquier margen */
+  text-align: center;
+  flex-shrink: 0; /* Asegura que el footer no se reduzca */
+}
+
+.footer-top {
+  margin-bottom: 10px; /* Mantén o ajusta según prefieras */
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding-bottom: 10px; /* Agrega padding inferior si quieres más espacio dentro del contenedor */
+}
+
+.footer-button {
+  display: inline-block;
+}
+
+.footer-button img {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.footer-button img:hover {
+  filter: grayscale(0%);
+}

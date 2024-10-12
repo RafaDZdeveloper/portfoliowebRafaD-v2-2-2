@@ -1,0 +1,521 @@
+/* App.css */
+
+/* Aplicar fuente Roboto a toda la página */
+* {
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color-light: #f5f5f5;
+  --text-color-light: #333;
+  --bg-color-dark: #121212;
+  --text-color-dark: #e0e0e0;
+}
+
+body {
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
+}
+
+body.dark-mode {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+}
+
+/* Estilo del contenedor principal */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Estilo del botón global */
+button:not(.mode-toggle-button) {
+  padding: 1em 3em; /* Aumento del padding para separar el contenido */
+  background: transparent;
+  color: var(--border-color);
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  outline: none;
+  overflow: hidden; /* Asegura que las líneas no se salgan del botón */
+}
+
+/* Líneas del borde superior e inferior */
+button:not(.mode-toggle-button)::before, 
+button:not(.mode-toggle-button)::after {
+  content: '';
+  position: absolute;
+  background-color: var(--border-color);
+  transition: transform var(--hover-transition), width var(--hover-transition);
+}
+
+button:not(.mode-toggle-button)::before {
+  top: 0; /* Posiciona la línea en la parte superior */
+  left: 0;
+  width: 100%;
+  height: var(--border-thick);
+  transform: scaleX(0); /* Línea invisible inicialmente */
+  transform-origin: left; /* Expande desde la izquierda */
+}
+
+button:not(.mode-toggle-button)::after {
+  bottom: 0; /* Posiciona la línea en la parte inferior */
+  right: 0; /* Posiciona la línea en la parte derecha */
+  width: 100%;
+  height: var(--border-thick);
+  transform: scaleX(0); /* Línea invisible inicialmente */
+  transform-origin: right; /* Expande desde la derecha */
+}
+
+/* Líneas verticales (solo para el botón de descargar CV) */
+button:not(.mode-toggle-button) span::before,
+button:not(.mode-toggle-button) span::after {
+  content: '';
+  position: absolute;
+  background-color: var(--border-color);
+  transition: transform var(--hover-transition), height var(--hover-transition);
+}
+
+button:not(.mode-toggle-button) span::before {
+  top: 0;
+  right: 0; /* Posiciona la línea en la parte derecha */
+  height: 100%;
+  width: var(--border-thick);
+  transform: scaleY(0); /* Línea invisible inicialmente */
+  transform-origin: top; /* Expande desde la parte superior */
+}
+
+button:not(.mode-toggle-button) span::after {
+  bottom: 0; /* Posiciona la línea en la parte inferior */
+  left: 0; /* Posiciona la línea en la parte izquierda */
+  height: 100%;
+  width: var(--border-thick);
+  transform: scaleY(0); /* Línea invisible inicialmente */
+  transform-origin: bottom; /* Expande desde la parte inferior */
+}
+
+/* Animación en hover para las líneas horizontales */
+button:not(.mode-toggle-button):hover::before {
+  transform: scaleX(1); /* Expande horizontalmente desde la izquierda */
+}
+
+button:not(.mode-toggle-button):hover::after {
+  transform: scaleX(1); /* Expande horizontalmente desde la derecha */
+}
+
+/* Animación en hover para las líneas verticales */
+button:not(.mode-toggle-button):hover span::before {
+  transform: scaleY(1); /* Expande verticalmente desde la parte superior */
+}
+
+button:not(.mode-toggle-button):hover span::after {
+  transform: scaleY(1); /* Expande verticalmente desde la parte inferior */
+}
+
+/* Estilos específicos para el botón de cambio de modo oscuro */
+.mode-toggle-button {
+  all: unset; /* Elimina todos los estilos heredados */
+  font-size: 1.2em; /* Ajusta el tamaño de fuente según tu preferencia */
+  color: var(--border-color); /* Color del texto */
+  background: transparent; /* Fondo transparente o ajusta según sea necesario */
+  border: none; /* Sin borde */
+  padding: 10px; /* Ajusta el padding según sea necesario */
+  cursor: pointer;
+  transition: color 0.3s ease; /* Transición para el color del texto */
+}
+
+/* Elimina cualquier borde para el logo */
+/* Logo */
+.logo {
+  height: 50px;
+  border: none; /* Elimina cualquier borde si se aplicara */
+  background: transparent; /* Fondo transparente */
+  position: relative; /* Posición relativa para aplicar estilos específicos */
+  display: inline-block; /* Asegúrate de que el logo se alinee correctamente */
+  transition: transform 0.3s ease; /* Transición para la animación */
+  transform-origin: center; /* Establece el centro como el punto de rotación */
+}
+
+/* Animación específica para el hover del logo */
+.logo-button:hover .logo {
+  transform: rotate(5deg); /* Solo rota el logo sin desplazamiento */
+}
+
+/* Elimina cualquier estilo del logo en el modo oscuro */
+body.dark-mode .logo {
+  filter: brightness(1); /* Asegúrate de que el logo tenga el brillo adecuado */
+}
+
+/* Animación específica para el hover del logo */
+.logo-button:hover .logo {
+  transform: translateY(-10px) rotate(5deg); /* Desplazamiento y rotación en hover */
+  transition: transform 0.3s ease; /* Transición para la animación */
+}
+
+/* Modo oscuro */
+body.dark-mode {
+  background-color: #121212; /* Fondo más oscuro */
+  color: #e0e0e0; /* Texto gris claro */
+}
+
+body.dark-mode .page-container {
+  background-color: #121212; /* Fondo oscuro del contenedor principal */
+}
+
+body.dark-mode header {
+  background-color: #1c1c1c; /* Fondo un poco más claro para el header */
+}
+
+body.dark-mode .project-item,
+body.dark-mode .grid-item,
+body.dark-mode .carousel-item {
+  background-color: #1e1e1e; /* Fondo oscuro para items */
+  color: #e0e0e0; /* Texto claro */
+}
+
+body.dark-mode .cv-download-section a.button {
+  color: #4a0072; /* Color lila brillante para el botón de descargar CV */
+}
+
+body.dark-mode .popup-content {
+  background-color: #1f1f1f; /* Fondo oscuro para el contenido del pop-up */
+  color: #e0e0e0; /* Texto claro en el pop-up */
+}
+
+body.dark-mode .popup-close {
+  background-color: #4a0072; /* Botón de cerrar con color lila brillante */
+  color: #121212; /* Texto oscuro en el botón de cerrar */
+}
+
+body.dark-mode .mode-toggle-button {
+  color: #4a0072; /* Botón de modo oscuro con color lila brillante */
+}
+
+/* Enlaces de navegación */
+body.dark-mode .nav-item a {
+  color: #4a0072; /* Enlaces de navegación con color lila brillante */
+}
+
+/* Animación y hover en modo oscuro */
+body.dark-mode button:not(.mode-toggle-button)::before,
+body.dark-mode button:not(.mode-toggle-button)::after,
+body.dark-mode button:not(.mode-toggle-button) span::before,
+body.dark-mode button:not(.mode-toggle-button) span::after {
+  background-color: #4a0072; /* Líneas con color lila brillante */
+}
+
+body.dark-mode button:not(.mode-toggle-button):hover::before,
+body.dark-mode button:not(.mode-toggle-button):hover::after,
+body.dark-mode button:not(.mode-toggle-button):hover span::before,
+body.dark-mode button:not(.mode-toggle-button):hover span::after {
+  background-color: #4a0072; /* Líneas con color rosa en hover */
+}
+
+
+/* Logo */
+.logo {
+  height: 50px;
+  /* Asegúrate de que el logo no tenga las líneas decorativas */
+  border: none; /* Elimina cualquier borde si se aplicara */
+  background: transparent; /* Fondo transparente */
+  position: relative; /* Posición relativa para aplicar estilos específicos */
+}
+
+/* Navegación */
+.nav-list {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+}
+
+/* Variables */
+:root {
+  --border-color: #6a1b9a; /* Color violeta oscuro */
+  --hover-color: #ff40ac; /* Color rosa para el hover */
+  --border-thick: 2px; /* Grosor de las líneas */
+  --line-gap: 1.5px; /* Espacio entre las líneas y el contenido */
+  --line-length: 50px; /* Longitud de las líneas */
+  --hover-transition: 0.3s ease; /* Transición en hover */
+}
+
+
+/* Sección del Carrusel */
+.carousel-section {
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+}
+
+.carousel-slide {
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  padding: 20px;
+  width: 300px;
+  scroll-snap-align: center;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.carousel-item h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: inherit;
+}
+
+.carousel-item p {
+  font-size: 1em;
+}
+
+/* Sección de Formación y Experiencia */
+.grid-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.grid-title {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid-item {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.grid-item-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.grid-item-subtitle {
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
+
+.grid-item-date {
+  font-size: 0.9em;
+}
+
+/* Sección de Descargar CV */
+.cv-download-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* Botón de Descargar CV */
+.cv-download-section a.button {
+  padding: 1em 3em; /* Mismo padding que otros botones */
+  background: transparent;
+  color: var(--border-color);
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Líneas del borde superior e inferior para el botón de descargar CV */
+.cv-download-section a.button::before, 
+.cv-download-section a.button::after {
+  content: '';
+  position: absolute;
+  background-color: var(--border-color);
+  transition: transform var(--hover-transition), width var(--hover-transition);
+}
+
+.cv-download-section a.button::before {
+  top: 0; /* Posiciona la línea en la parte superior */
+  left: 0;
+  width: 100%;
+  height: var(--border-thick);
+  transform: scaleX(0); /* Línea invisible inicialmente */
+  transform-origin: left; /* Expande desde la izquierda */
+}
+
+.cv-download-section a.button::after {
+  bottom: 0; /* Posiciona la línea en la parte inferior */
+  right: 0; /* Posiciona la línea en la parte derecha */
+  width: 100%;
+  height: var(--border-thick);
+  transform: scaleX(0); /* Línea invisible inicialmente */
+  transform-origin: right; /* Expande desde la derecha */
+}
+
+/* Líneas verticales para el botón de descargar CV */
+.cv-download-section a.button span::before,
+.cv-download-section a.button span::after {
+  content: '';
+  position: absolute;
+  background-color: var(--border-color);
+  transition: transform var(--hover-transition), height var(--hover-transition);
+}
+
+.cv-download-section a.button span::before {
+  top: 0;
+  right: 0; /* Posiciona la línea en la parte derecha */
+  height: 100%;
+  width: var(--border-thick);
+  transform: scaleY(0); /* Línea invisible inicialmente */
+  transform-origin: top; /* Expande desde la parte superior */
+}
+
+.cv-download-section a.button span::after {
+  bottom: 0; /* Posiciona la línea en la parte inferior */
+  left: 0; /* Posiciona la línea en la parte izquierda */
+  height: 100%;
+  width: var(--border-thick);
+  transform: scaleY(0); /* Línea invisible inicialmente */
+  transform-origin: bottom; /* Expande desde la parte inferior */
+}
+
+/* Animación en hover para las líneas horizontales */
+.cv-download-section a.button:hover::before {
+  transform: scaleX(1); /* Expande horizontalmente desde la izquierda */
+}
+
+.cv-download-section a.button:hover::after {
+  transform: scaleX(1); /* Expande horizontalmente desde la derecha */
+}
+
+/* Animación en hover para las líneas verticales */
+.cv-download-section a.button:hover span::before {
+  transform: scaleY(1); /* Expande verticalmente desde la parte superior */
+}
+
+.cv-download-section a.button:hover span::after {
+  transform: scaleY(1); /* Expande verticalmente desde la parte inferior */
+}
+
+/* Pop-up Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+}
+
+.popup-content {
+  padding: 30px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  background-color: #fff; /* Fondo claro para el pop-up */
+  border-radius: 8px;
+}
+
+.popup-title {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.popup-institution,
+.popup-year,
+.popup-company,
+.popup-period,
+.popup-description {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+}
+.popup-close {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  background-color: #ff6f61; /* Color para el botón de cerrar */
+  color: #fff;
+}
+
+/* Animación general para elementos */
+.animated {
+  transition: all 0.3s ease;
+}
+
+/* Aplicar la animación a la imagen del héroe */
+.hero-image.animated {
+  transform: scale(1);
+}
+
+.hero-image.animated:hover {
+  transform: scale(1.05);
+}
+
+/* Aplicar la animación a los items del carrusel */
+.carousel-item.animated {
+  transform: scale(1);
+}
+
+.carousel-item.animated:hover {
+  transform: scale(1.05);
+}
+
+/* Aplicar la animación a los items de la cuadrícula */
+.grid-item.animated {
+  transform: scale(1);
+}
+
+.grid-item.animated:hover {
+  transform: scale(1.05);
+}
+
+/* Cambia el cursor a pointer para todos los enlaces */
+a {
+  cursor: pointer;
+}

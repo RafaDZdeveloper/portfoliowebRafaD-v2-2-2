@@ -1,0 +1,330 @@
+:root {
+  --border-color: #000; /* Ajusta el color del borde según tus preferencias */
+  --border-thick: 2px; /* Grosor del borde */
+  --hover-transition: 0.3s; /* Duración de la animación en hover */
+}
+
+/* Estilos generales */
+.home {
+  margin: 0 auto;
+  font-family: sans-serif;
+}
+
+/* Sección Hero */
+
+.hero {
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+ 
+}
+
+.hero-content {
+  display: flex;
+  align-items: center; /* Centra verticalmente la imagen y el texto */
+  position: relative; /* Necesario para el ajuste de la imagen */
+  max-width: 1000px; /* Ajusta el ancho máximo del contenedor */
+  width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+}
+
+.hero-image {
+  height: 95vh; /* Ocupa todo el alto del contenedor */
+  width: auto; /* Mantiene la proporción de la imagen */
+  object-fit: cover; /* Cubre el contenedor sin distorsionar */
+  margin-right: 80px; /* Ajusta el espacio entre la imagen y el texto */
+  position: absolute; /* Permite mover la imagen fuera del flujo normal del documento */
+  left: -10%; /* Mueve la imagen hacia la izquierda, ajusta según sea necesario */
+}
+
+.text-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el texto verticalmente */
+  text-align: center; /* Centra el texto horizontalmente */
+  margin-left: auto; /* Alinea el texto a la derecha del contenedor */
+  max-width: 600px; /* Ajusta el ancho máximo del contenedor de texto */
+}
+
+.hero-content h1 {
+  font-size: 4em; /* Tamaño grande para destacar el título */
+  margin: 0; /* Elimina el margen */
+  background: -webkit-linear-gradient(45deg, #4a0072, #d81b60);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+  font-size: 1.5em; /* Tamaño grande para el texto descriptivo */
+  margin: 0; /* Elimina el margen */
+}
+
+
+
+
+
+/* Sección del Carrusel */
+.carousel-section {
+  text-align: center;
+  padding: 60px 20px;
+  margin-top: 2px;
+}
+
+.carousel-title {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  background: -webkit-linear-gradient(45deg, #4a0072, #d81b60);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.carousel-container {
+  margin-bottom: 20px;
+}
+
+.button {
+  padding: 15px 30px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.2em;
+  color: #fff;
+  background-color: #4a0072;
+  border-radius: 8px;
+  border: 1px solid #4a0072;
+  display: inline-block;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #d81b60;
+  border-color: #d81b60;
+}
+
+/* Sección de Formación y Experiencia */
+.grid-section {
+  padding: 40px 20px; /* Reducido el padding superior de 60px a 40px */
+  text-align: center;
+}
+
+
+.grid-title {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  background: -webkit-linear-gradient(45deg, #4a0072, #d81b60);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Contenedor de Items de Formación y Experiencia */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid-item {
+  padding: 20px;
+  cursor: pointer;
+  background-color: #e8d9f3;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #d8aaff;
+}
+
+.grid-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-color: #d81b60;
+}
+
+.grid-item-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  background: -webkit-linear-gradient(45deg, #4a0072, #d81b60);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.grid-item-subtitle {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.grid-item-date {
+  font-size: 1em;
+}
+
+/* Botón Toggle */
+.toggle-button {
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1.2em;
+  margin-bottom: 60px;
+}
+
+/* Sección de Descargar CV */
+.cv-download-section {
+  text-align: center;
+  padding: 60px 20px;
+  color: #4a0072;
+}
+
+.download-button {
+  padding: 15px 30px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.2em;
+  color: #4a0072;
+}
+
+/* Pop-up */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+  padding: 30px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+  z-index: 1001;
+  position: relative;
+}
+
+.popup-title {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  background: -webkit-linear-gradient(45deg, #4a0072, #d81b60);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.popup-institution,
+.popup-company {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.popup-year,
+.popup-period,
+.popup-description {
+  font-size: 1.2em;
+}
+
+/* Botón de cerrar */
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5em;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #d81b60;
+}
+
+/* Botón "Ir a Proyectos" */
+.projects-button {
+  display: inline-block;
+  margin-top: 50px;
+  padding: 15px 30px;
+  background: transparent;
+  color: var(--border-color);
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-bottom: -5000px;
+}
+
+/* Líneas del borde superior e inferior para el botón "Ir a Proyectos" */
+.projects-button::before,
+.projects-button::after {
+  content: '';
+  position: absolute;
+  background-color: var(--border-color);
+  transition: transform var(--hover-transition), width var(--hover-transition);
+}
+
+.projects-button::before {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--border-thick);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.projects-button::after {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: var(--border-thick);
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+/* Líneas verticales para el botón "Ir a Proyectos" */
+.projects-button span::before,
+.projects-button span::after {
+  content: '';
+  position: absolute;
+  background-color: var(--border-color);
+  transition: transform var(--hover-transition), height var(--hover-transition);
+}
+
+.projects-button span::before {
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: var(--border-thick);
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.projects-button span::after {
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: var(--border-thick);
+  transform: scaleY(0);
+  transform-origin: bottom;
+}
+
+/* Animación en hover para las líneas horizontales */
+.projects-button:hover::before,
+.projects-button:hover::after {
+  transform: scaleX(1);
+}
+
+/* Animación en hover para las líneas verticales */
+.projects-button:hover span::before,
+.projects-button:hover span::after {
+  transform: scaleY(1);
+}

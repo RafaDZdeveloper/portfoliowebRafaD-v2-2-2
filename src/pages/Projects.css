@@ -1,0 +1,150 @@
+/* Projects.css */
+
+/* General */
+.projects {
+  padding: 40px; /* Espaciado más amplio alrededor de la sección */
+  text-align: center; /* Centra el contenido del contenedor .projects */
+  margin: 40px auto;
+}
+
+/* Títulos en Projects */
+.title-gradient {
+  font-size: 2.5em; /* Tamaño igual al h1 en About */
+  margin-bottom: 60px; /* Aumenta la separación entre el título y el contenido */
+  background: -webkit-linear-gradient(45deg, #4a0072, #d81b60); /* Degradado de color */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; /* Hace el texto transparente para el degradado */
+  display: inline; /* Asegura que el título no se extienda a lo ancho del contenedor */
+}
+
+/* Lista de proyectos */
+.projects-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(450px, 1fr)); /* Dos columnas con tamaño mínimo mayor */
+  gap: 20px; /* Espacio uniforme entre tarjetas en todas las direcciones */
+  justify-content: center; /* Centra la cuadrícula en el contenedor */
+  align-items: start; /* Alinea las tarjetas al inicio de la fila */
+  max-width: 1200px; /* Ancho máximo para la cuadrícula */
+  margin: 40px auto; /* Centra la cuadrícula horizontalmente */
+}
+
+/* Tarjeta de Proyecto */
+.project-card {
+  position: relative;
+  width: 100%; /* Ancho completo de la columna */
+  max-width: 900px; /* Ancho máximo más grande para las tarjetas */
+  border-radius: 10px; /* Bordes más suaves */
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra más suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+  overflow: hidden; /* Oculta el contenido desbordante */
+}
+
+.project-card:hover {
+  transform: translateY(-10px); /* Ligero desplazamiento hacia arriba */
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25); /* Sombra más pronunciada en hover */
+}
+
+.project-image {
+  width: 100%;
+  height: auto; /* Mantiene la proporción de la imagen */
+  max-height: 700px; /* Altura máxima para las imágenes */
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: auto; /* Mantiene la altura proporcional */
+  object-fit: cover; /* Cubre el contenedor sin distorsionar */
+  display: block;
+  transition: transform 0.3s ease; /* Transición suave para el zoom */
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05); /* Efecto de zoom en hover */
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Fondo oscuro para el overlay */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease; /* Transición suave para la visibilidad */
+  padding: 20px; /* Mayor padding para más espacio */
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-overlay-content {
+  text-align: center;
+  max-width: 90%; /* Máxima anchura del contenido del overlay */
+}
+
+.project-short-description {
+  font-size: 1.2em; /* Descripción un poco más grande */
+  margin: 0;
+}
+
+/* Overlay para el popup */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Fondo oscuro con transparencia */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Asegura que esté sobre otros contenidos */
+  cursor: pointer;
+}
+
+/* Contenido del popup */
+.popup-content {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 90%; /* Ancho máximo del popup */
+  max-height: 80vh; /* Altura máxima del popup */
+  overflow: auto; /* Habilita el scroll si el contenido es muy grande */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más ligera */
+  text-align: center; /* Centra el texto dentro del popup */
+}
+
+/* Imagen en el popup */
+.popup-image {
+  max-width: 100%; /* Limita el ancho de la imagen para que se ajuste */
+  height: auto; /* Mantiene la proporción de la imagen */
+  margin-bottom: 20px; /* Espacio debajo de la imagen */
+}
+
+/* Título del Popup */
+.popup-content .title-gradient {
+  font-size: 2em; /* Tamaño del título */
+  margin-bottom: 20px; /* Espacio debajo del título */
+  background: -webkit-linear-gradient(45deg, #4a0072, #d81b60); /* Degradado */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; /* Para el efecto de degradado en WebKit */
+  text-align: center; /* Centra el texto */
+}
+
+/* Imagen en el Popup */
+.popup-image {
+  max-width: 100%; /* Limita el ancho de la imagen */
+  height: auto; /* Mantiene la proporción de la imagen */
+  margin-bottom: 20px; /* Espacio debajo de la imagen para separar del texto */
+}

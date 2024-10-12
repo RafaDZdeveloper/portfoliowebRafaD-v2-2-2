@@ -1,0 +1,59 @@
+/* Contenedor del carrusel */
+.carousel-container {
+  position: relative;
+  max-width: 90%;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: #ffffff; /* Fondo blanco */
+ 
+}
+
+/* Estilos para las imágenes dentro del carrusel */
+.carousel-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none; /* Asegúrate de que las imágenes no tengan borde */
+}
+
+/* Efecto de hover en las imágenes */
+.carousel-container img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada en hover */
+}
+
+/* Indicadores personalizados */
+.carousel .indicator {
+  background-color: #e8d9f3;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.carousel .indicator.selected {
+  background-color: #4a0072; /* Color del indicador seleccionado */
+}
+
+/* Baja la posición de los indicadores */
+.carousel .carousel-indicators {
+  position: absolute;
+  bottom: -20px; /* Baja los indicadores */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Oculta las flechas de navegación */
+.carousel-arrow {
+  display: none;
+}
+
+/* Oculta el estado del carrusel */
+.carousel .carousel-status {
+  display: none;
+}
